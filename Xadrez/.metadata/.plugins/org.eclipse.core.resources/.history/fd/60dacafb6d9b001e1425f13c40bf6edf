@@ -1,0 +1,12 @@
+package application;
+
+import chess.ChessMatch;
+
+public class Jogo {
+
+	public static void main(String[] args) {
+		System.out.println("⬜⬛");
+		
+		ChessMatch chessMatch = new ChessMatch();
+	}
+}

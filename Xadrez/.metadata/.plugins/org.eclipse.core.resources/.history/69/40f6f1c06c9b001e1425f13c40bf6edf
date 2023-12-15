@@ -1,0 +1,17 @@
+package application;
+
+public class UI {
+	
+	public static void printBoard(chessPiece[][] pieces) {
+		
+	}
+	
+	private static void printPiece(ChessPiece piece) {
+		if (piece == null) {
+			System.out.print("⬜ ⬛");
+		}
+		else {
+			System.out.print(piece);
+		}
+	}
+}
