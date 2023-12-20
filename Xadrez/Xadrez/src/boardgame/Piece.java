@@ -13,4 +13,8 @@ public class Piece {
 	public Board getBoard() {
 		return board;
 	}
+
+	public Position getPosition() {
+		return position;
+	}
 }
