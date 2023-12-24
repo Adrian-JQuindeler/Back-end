@@ -1,6 +1,7 @@
 package chesspieces;
 
 import boardgame.Board;
+import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
@@ -13,5 +14,42 @@ public class Bishop extends ChessPiece{
 	@Override
 	public String toString() {
 		return "X";	
+	}
+
+	@Override
+	public boolean[][] possibleMoves() {
+		
+		boolean[][] mat = new boolean[getBoard().getRow()][getBoard().getColumn()];
+		Position p = new Position(0,0);
+		
+		//Up - Right
+		p.setValues(position.getRow() - 1, position.getColumn() + 1);
+		while (getBoard().positionExist(p) && !getBoard().thereIsAPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+			p.setValues(p.getRow() - 1, p.getColumn() + 1);
+		}
+		
+		//Up - Left
+		p.setValues(position.getRow() - 1, position.getColumn() - 1);
+		while (getBoard().positionExist(p) && !getBoard().thereIsAPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+			p.setValues(p.getRow() - 1, p.getColumn() - 1);
+		}
+		
+		//Down - Right
+		p.setValues(position.getRow() + 1, position.getColumn() + 1);
+		while (getBoard().positionExist(p) && !getBoard().thereIsAPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+			p.setValues(p.getRow() + 1, p.getColumn() + 1);
+		}
+		
+		//Down - Left
+		p.setValues(position.getRow() + 1, position.getColumn() - 1);
+		while (getBoard().positionExist(p) && !getBoard().thereIsAPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+			p.setValues(p.getRow() + 1, p.getColumn() - 1);
+		}
+		
+		return mat;
 	}
 }

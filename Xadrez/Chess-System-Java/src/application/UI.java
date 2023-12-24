@@ -1,6 +1,10 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
 
 public class UI {
@@ -26,44 +30,69 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	public static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
-			System.out.print("\n" + (8 - i) + " ");
+			System.out.print((8 - i) + " ");
 			
 			for (int j = 0; j < pieces.length; j++) {
 				
-				if (i % 2 == j % 2) { printWhiteSquare(pieces[i][j]); }
-				else { printBlackSquare(pieces[i][j]);}
+				if (i % 2 == j % 2) { printWhiteSquare(pieces[i][j], false); }
+				else { printBlackSquare(pieces[i][j], false);}
 			}
 			
 			System.out.println("");
 		}
-		System.out.println("  A\tB\tC\tD\tE\tF\tG\tH");
+		System.out.println("  A B C D E F G H");
 	}
 	
-	private static void printWhiteSquare(ChessPiece piece) {
-		if (piece == null) {
-			System.out.print("░░\t");
-		}
-		else {
-			if (piece.getColor() == Color.WHITE) {
-				System.out.print(ANSI_WHITE + piece + "\t" + ANSI_RESET);
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] mat) {
+		for (int i = 0; i < pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			
+			for (int j = 0; j < pieces.length; j++) {
+				
+				if (i % 2 == j % 2) { printWhiteSquare(pieces[i][j], mat[i][j]); }
+				else { printBlackSquare(pieces[i][j], mat[i][j]);}
 			}
+			
+			System.out.println("");
+		}
+		System.out.println("  A B C D E F G H");
+	}
+	
+	public static ChessPosition readChessPosition(Scanner sc) {
+		
+		try {
+			String chessPosition = sc.nextLine();
+			char col = chessPosition.charAt(0);
+			int row = Integer.parseInt(chessPosition.substring(1));
+			return new ChessPosition(col, row);
+		}
+		catch(RuntimeException e) { throw new InputMismatchException("Position not on the board!"); }
+	}
+	
+	private static void printWhiteSquare(ChessPiece piece, boolean move) {
+		if(move) { System.out.print(ANSI_BLUE_BACKGROUND + "  " + ANSI_RESET); }
+		else {
+			if (piece == null) { System.out.print(ANSI_WHITE_BACKGROUND + "  " + ANSI_RESET); }
 			else {
-				System.out.print(ANSI_YELLOW + piece + "\t" + ANSI_RESET);
+				if (piece.getColor() == Color.WHITE) { System.out.print(ANSI_WHITE + piece + " " + ANSI_RESET); }
+				else { System.out.print(ANSI_YELLOW + piece + " " + ANSI_RESET); }
 			}
 		}
 	}
-	private static void printBlackSquare(ChessPiece piece) {
-		if (piece == null) {
-			System.out.print("██\t");
-		}
+	private static void printBlackSquare(ChessPiece piece, boolean move) {
+		if(move) { System.out.print(ANSI_BLUE_BACKGROUND + "  " + ANSI_RESET); }
 		else {
-			if (piece.getColor() == Color.WHITE) {
-				System.out.print(ANSI_WHITE + piece + "\t" + ANSI_RESET);
-			}
+			if (piece == null) { System.out.print(ANSI_YELLOW_BACKGROUND + "  " + ANSI_RESET); }
 			else {
-				System.out.print(ANSI_YELLOW + piece + "\t" + ANSI_RESET);
+				if (piece.getColor() == Color.WHITE) { System.out.print(ANSI_WHITE + piece + " " + ANSI_RESET); }
+				else { System.out.print(ANSI_YELLOW + piece + " " + ANSI_RESET); }
 			}
 		}
 	}
