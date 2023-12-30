@@ -50,13 +50,6 @@ public class ChessMatch {
 		validatePosition(source);
 		validatePosition(source, target);
 		Piece captured = makeAMove(source, target);
-		
-		if(testCheck(currentPlayer)) {
-			throw new ChessException("You can't put yourself in check");
-		}
-		
-		check = testCheck(opponent(currentPlayer));
-		
 		nextTurn();
 		return (ChessPiece)captured;
 	}
@@ -168,9 +161,5 @@ public class ChessMatch {
 	}
 	public Color getCurrentPlayer() {
 		return currentPlayer;
-	}
-	
-	public boolean getCheck() {
-		return check;
 	}
 }

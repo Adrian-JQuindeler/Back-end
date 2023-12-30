@@ -54,7 +54,7 @@ public class UI {
 	    System.out.println("Turn: " + chessMatch.getTurn());
 	    System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
 	    if(chessMatch.getCheck()) {
-	    	System.out.println(ANSI_GREEN + "CHECK!" + ANSI_RESET);
+	    	System.out.println("CHECK!");
 	    }
 	}
 	
