@@ -1,7 +1,10 @@
 package application;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -43,8 +46,10 @@ public class UI {
 		System.out.println("  A B C D E F G H");
 	}
 	
-	public static void printMatch(ChessMatch chessMatch){
+	public static void printMatch(ChessMatch chessMatch, List<ChessPiece> capturedPieces){
+		printCapturedPieces(capturedPieces, Color.WHITE);
 	    printBoard(chessMatch.getPieces());
+		printCapturedPieces(capturedPieces, Color.BLACK);
 	    System.out.println("");
 	    System.out.println("Turn: " + chessMatch.getTurn());
 	    System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
@@ -58,7 +63,7 @@ public class UI {
 			int row = Integer.parseInt(chessPosition.substring(1));
 			return new ChessPosition(col, row);
 		}
-		catch(RuntimeException e) { throw new InputMismatchException("Position not on the board!"); }
+		catch(RuntimeException e) { throw new InputMismatchException("Positions must be between 'a1' and 'h8'"); }
 	}
 	
 	private static void printSquare(ChessPiece piece, boolean move, String color) {
@@ -76,6 +81,18 @@ public class UI {
 				else {{ System.out.print(ANSI_YELLOW + piece + " " + ANSI_RESET); }}
 			}
 		}
+	}
+	
+	private static void printCapturedPieces(List<ChessPiece> captured, Color color) {
+		List<ChessPiece> pieces = captured.stream().filter(piece -> piece.getColor() == color).collect(Collectors.toList());
+		
+		if(color == Color.WHITE) { System.out.print(ANSI_WHITE + " " + ANSI_RED_BACKGROUND + " "); }
+		else { System.out.print(ANSI_YELLOW + " " + ANSI_RED_BACKGROUND + " "); }
+		
+		for (ChessPiece chessPiece : pieces) {
+			System.out.print(chessPiece + " ");
+		}
+		System.out.println(ANSI_RESET);
 	}
 	
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
