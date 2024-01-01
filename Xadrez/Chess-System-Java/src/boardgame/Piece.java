@@ -14,7 +14,7 @@ public abstract class Piece {
 		return board;
 	}
 
-	public Position getPosition() {
+	protected Position getPosition() {
 		return position;
 	}
 	

@@ -47,15 +47,24 @@ public class UI {
 	}
 	
 	public static void printMatch(ChessMatch chessMatch, List<ChessPiece> capturedPieces){
+		
 		printCapturedPieces(capturedPieces, Color.WHITE);
 	    printBoard(chessMatch.getPieces());
-		printCapturedPieces(capturedPieces, Color.BLACK);
+	    printCapturedPieces(capturedPieces, Color.BLACK);
+	    
 	    System.out.println("");
-	    System.out.println("Turn: " + chessMatch.getTurn());
-	    System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
-	    if(chessMatch.getCheck()) {
-	    	System.out.println(ANSI_GREEN + "CHECK!" + ANSI_RESET);
+	    
+	    if (!chessMatch.isCheckMate()) {
+		    System.out.println("Turn: " + chessMatch.getTurn());
+	    	System.out.println("Current Player: " + chessMatch.getCurrentPlayer()); 
+	    	if(chessMatch.isCheck()) { System.out.println(ANSI_GREEN + "CHECK!" + ANSI_RESET);}
 	    }
+	    else {
+	    	System.out.println("CHECKMATE!");
+		    System.out.println("Turns: " + chessMatch.getTurn());
+	    	System.out.println("Winner: " + chessMatch.getCurrentPlayer() + "!");
+	    }
+	    
 	}
 	
 	public static ChessPosition readChessPosition(Scanner sc) {
