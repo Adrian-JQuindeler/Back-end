@@ -28,6 +28,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setRow(p.getRow() - 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Down
 		p.setValues(position.getRow() + 1, position.getColumn());
@@ -35,6 +36,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setRow(p.getRow() + 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Right
 		p.setValues(position.getRow(), position.getColumn() + 1);
@@ -42,6 +44,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setColumn(p.getColumn() + 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Left
 		p.setValues(position.getRow(), position.getColumn() - 1);
@@ -49,6 +52,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setColumn(p.getColumn() - 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Up - Right
 		p.setValues(position.getRow() - 1, position.getColumn() + 1);
@@ -56,6 +60,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setValues(p.getRow() - 1, p.getColumn() + 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Up - Left
 		p.setValues(position.getRow() - 1, position.getColumn() - 1);
@@ -63,6 +68,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setValues(p.getRow() - 1, p.getColumn() - 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Down - Right
 		p.setValues(position.getRow() + 1, position.getColumn() + 1);
@@ -70,6 +76,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setValues(p.getRow() + 1, p.getColumn() + 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		//Down - Left
 		p.setValues(position.getRow() + 1, position.getColumn() - 1);
@@ -77,6 +84,7 @@ public class Queen extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setValues(p.getRow() + 1, p.getColumn() - 1);
 		}
+		if(getBoard().positionExist(p) && isThereOpponentPiece(p)) {mat[p.getRow()][p.getColumn()] = true;}
 		
 		return mat;
 	}
