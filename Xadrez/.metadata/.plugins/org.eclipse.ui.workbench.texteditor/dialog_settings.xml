@@ -6,13 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="8"/>
+		<item key="selection" value="canMove(p)"/>
 		<list key="findhistory">
+			<item value="!getBoard().thereIsAPiece(p)"/>
 			<item value="7"/>
 			<item value="board.placePiece"/>
 			<item value=", new Position(7, 1)"/>
 		</list>
 		<list key="replacehistory">
+			<item value="canMove(p)"/>
 			<item value="8"/>
 			<item value="placeNewPiece"/>
 			<item value=""/>
