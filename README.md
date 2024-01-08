@@ -3,7 +3,7 @@
 ### 1 - Xadrês:
   Chess System Java é um jogo que pode ser jogado no terminal ou em uma IDE, o mesmo foi criado no curso de Java do professor Nelio Alves do canal 'DevSuperior' (https://github.com/acenelio). O programa consiste em uma partida de xadrez, com todas as suas regras e seus movimentos especiais. 
   Para jogar, o java e o git devem estar instalados e configurados no computador. Caso esteja, clone o repositório e acesse o caminho "Xadrez\Chess-System-Java\bin", abra o git bash dentro da pasta "bin" e digite "Java application/Game". Caso queira jogar em uma IDE, basta executar o arquivo 'Game". Assim que o jogo começar é recomendável dar zoom para ter uma visão melhor, as peças do Chess-System-Java tem como símbolo a direção que elas se movem. 
-(Torre = + / Cavalo = L / Bispo = X / Raínha = * / Rei = O / Peão = I)
+(Torre = + / Cavalo = L / Bispo = X / Rainha = * / Rei = O / Peão = I)
 
 
 
