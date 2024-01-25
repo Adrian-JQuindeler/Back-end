@@ -1,4 +1,4 @@
-# Projetos
+# Jogos
 
 ### 1 - Xadrês:
   Chess System Java é um jogo que pode ser jogado no terminal ou em uma IDE, o mesmo foi criado no curso de Java do professor Nelio Alves do canal 'DevSuperior' (https://github.com/acenelio). O programa consiste em uma partida de xadrez, com todas as suas regras e seus movimentos especiais. 
