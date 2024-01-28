@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Xadrez {
+module xadrez {
 }
