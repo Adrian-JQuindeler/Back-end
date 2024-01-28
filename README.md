@@ -1,7 +1,7 @@
 # Projetos
 
 ## 1 - Xadrês:
-  Este é um sistema de Xadrez desenvolvido em Java, que pode ser jogado tanto no terminal quanto em uma IDE. O projeto foi criado durante o curso de Java ministrado pelo professor Nelio Alves, disponível no canal 'DevSuperior' (https://github.com/acenelio).
+  Este é um sistema de Xadrez desenvolvido em Java, que pode ser jogado tanto no terminal quanto em uma IDE. O projeto foi criado durante o curso de Java ministrado pelo professor Nelio Alves do canal 'DevSuperior' (https://github.com/acenelio).
 
 ##### Como Jogar:
 Antes de começar, certifique-se de ter o Java e o Git instalados e configurados em seu computador. Se já estiverem instalados, siga os passos abaixo:
